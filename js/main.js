@@ -5,7 +5,8 @@ createApp ({
         return {
             done: true,
             newTask: "",
-
+            error: false,
+            
             listTask: [{
                 text: "Comprare il latte",
                 done: true,
@@ -30,10 +31,21 @@ createApp ({
     },
 
     methods: {
-        addTask () {
-            console.log(this.newTask);
-            console.log(this.listTask)
-            this.listTask.unshift(this.newTask)
+        addTask (){
+            if (this.newTask !== "" && this.newTask.length >= 5){
+                this.listTask.unshift(
+                    {   text:this.newTask,
+                        done:false
+                    });
+                    this.newTask= "",
+                    this.error = false
+                    // console.log(this.newTask);
+                    // console.log(this.listTask)
+            } else {
+                this.error = true,
+                console.log("è troppo corto")
+            }
+            
         }
     }
 }).mount("#app");
