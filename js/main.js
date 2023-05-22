@@ -49,6 +49,13 @@ createApp ({
         },
         removeTask (index){
             this.listTask.splice(index,1)
+        },
+        verificaStatoDone (index){
+            if (this.listTask[index].done === true){
+                this.listTask[index].done = false
+            } else {
+                this.listTask[index].done = true
+            }
         }
     }
 }).mount("#app");

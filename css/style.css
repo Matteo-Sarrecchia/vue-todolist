@@ -71,4 +71,6 @@
 
 .textDecoration{
     text-decoration: line-through;
+    text-decoration-color: black;
+    text-decoration-thickness: 5px;
 }

@@ -23,8 +23,9 @@
 
         <div id="taskContainer">
             <ul>
-                <li class="task" :class="listTask.done === true ? 'textDecoration' : '' " v-for="(task, index) in listTask">
-                    {{task.text}}
+                <li class="task"  v-for="(task, index) in listTask" @click="verificaStatoDone(index)">
+                    <span :class="listTask[index].done === true ? 'textDecoration' : '' ">{{task.text}}</span>
+                    
                     <i class="fa-solid fa-delete-left" style="color: #ffffff;" @click="removeTask"></i>
                 </li>
             </ul>
