@@ -12,8 +12,8 @@
     
     <div id="app">
         <div id="container">
-            <input type="text" placeholder="Inserisci un nuovo promemoria">
-            <button>Aggiungi Task</button>
+            <input type="text" placeholder="Inserisci un nuovo promemoria" v-model="newTask">
+            <button @click="addTask">Aggiungi Task</button>
         </div>
 
         <div id="taskContainer">

@@ -4,6 +4,7 @@ createApp ({
     data(){
         return {
             done: true,
+            newTask: "",
 
             listTask: [{
                 text: "Comprare il latte",
@@ -25,8 +26,14 @@ createApp ({
                 text: "Prendere l'ombrello",
                 done: true,
             }
-        ]  
-    }
-        
+        ]}
+    },
+
+    methods: {
+        addTask () {
+            console.log(this.newTask);
+            console.log(this.listTask)
+            this.listTask.unshift(this.newTask)
+        }
     }
 }).mount("#app");
