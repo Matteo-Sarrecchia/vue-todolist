@@ -46,6 +46,9 @@ createApp ({
                 console.log("è troppo corto")
             }
             
+        },
+        removeTask (index){
+            this.listTask.splice(index,1)
         }
     }
 }).mount("#app");

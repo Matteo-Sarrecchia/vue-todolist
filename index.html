@@ -12,7 +12,7 @@
     
     <div id="app">
         <div id="container">
-            <input type="text" placeholder="Inserisci un nuovo promemoria" v-model="newTask">
+            <input type="text" placeholder="Inserisci un nuovo promemoria" v-model="newTask" @keyup.enter="addTask">
             <button @click="addTask">Aggiungi Task</button>
 
             <!-- output di errore -->
@@ -23,11 +23,12 @@
 
         <div id="taskContainer">
             <ul>
-                <li class="task" v-for="task in listTask">
+                <li class="task" :class="listTask.done === true ? 'textDecoration' : '' " v-for="(task, index) in listTask">
                     {{task.text}}
-                    <i class="fa-solid fa-delete-left" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-delete-left" style="color: #ffffff;" @click="removeTask"></i>
                 </li>
             </ul>
+            <h2 class="taskVuota" v-if="listTask.length === 0">Non ciavemo più niente zi.. </h2>
         </div>
     </div>
 
